@@ -33,9 +33,12 @@ const createCommand = async (client, name, description, options) => {
 
 	// await await client.application.commands.create(data);
 	// eslint-disable-next-line no-unused-vars
-	const command = await client.guilds.cache
+
+	const command = await client.application.commands.create(data);
+
+	/* const command = await client.guilds.cache
 		.get(process.env.GUILD_ID)
-		.commands.create(data);
+		.commands.create(data);*/
 };
 
 export {
