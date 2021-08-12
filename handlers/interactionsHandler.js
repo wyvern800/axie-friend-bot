@@ -38,7 +38,7 @@ const handleInteractions = async (client, interaction) => {
  * @param {Object} client The bot client
  */
 const handlePresence = async (client) => {
-	setTimeout(async () => {
+	setInterval(async () => {
 		const response = await api.get(
 			'https://www.gasnow.org/api/v3/gas/price?utm_source=gasnow-fetcher',
 		);
@@ -46,7 +46,7 @@ const handlePresence = async (client) => {
 		const rapid = response.data['data']['rapid'].toString();
 		const fast = response.data['data']['fast'].toString();
 		const standard = response.data['data']['standard'].toString();
-		const slow = response.data['data']['slow'];
+		const slow = response.data['data']['slow'].toString();
 
 		client.user.setPresence({
 			activities: [
