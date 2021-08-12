@@ -6,6 +6,9 @@
   "repository": "https://github.com/wyvern800/axie-friend-bot.git",
   "author": "wyvern800 <matheusguiferreira@hotmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
