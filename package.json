@@ -20,7 +20,8 @@
     "dotenv": "^10.0.0"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node index.js",
+    "start": "babel-node index.js"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
