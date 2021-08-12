@@ -46,19 +46,19 @@ const handlePresence = async (client) => {
 		const rapid = response.data['data']['rapid'].toString();
 		const fast = response.data['data']['fast'].toString();
 		const standard = response.data['data']['standard'].toString();
-		// const slow = response.data['data']['slow'];
+		const slow = response.data['data']['slow'];
 
 		client.user.setPresence({
 			activities: [
 				{
-					name: `⚡${rapid.slice(0, 2)} |🚶🏼${fast.slice(
+					name: `⚡${fast.slice(0, 2)} |🚶🏼${standard.slice(
 						0,
 						2,
-					)} |🐢${standard.slice(0, 2)}`,
+					)} |🐢${slow.slice(0, 2)}`,
 				},
 			],
 		});
-	}, 5000);
+	}, 10000);
 };
 
 /**
