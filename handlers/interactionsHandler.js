@@ -23,6 +23,13 @@ const handleInteractions = async (client, interaction) => {
 	case 'ping':
 		interaction.reply(`Websocket heartbeat: ${client.ws.ping}ms.`);
 		break;
+	case 'source':
+		interaction.reply({
+			content:
+          'My Github Repository: https://github.com/wyvern800/axie-friend-bot',
+			ephemeral: true,
+		});
+		break;
 	}
 };
 
@@ -32,7 +39,9 @@ const handleInteractions = async (client, interaction) => {
  */
 const handlePresence = async (client) => {
 	setTimeout(async () => {
-		const response = await api.get('https://www.gasnow.org/api/v3/gas/price?utm_source=gasnow-fetcher');
+		const response = await api.get(
+			'https://www.gasnow.org/api/v3/gas/price?utm_source=gasnow-fetcher',
+		);
 
 		const rapid = response.data['data']['rapid'].toString();
 		const fast = response.data['data']['fast'].toString();
@@ -42,7 +51,10 @@ const handlePresence = async (client) => {
 		client.user.setPresence({
 			activities: [
 				{
-					name: `⚡${rapid.slice(0, 2)} |🚶🏼${fast.slice(0, 2)} |🐢${standard.slice(0, 2)}`,
+					name: `⚡${rapid.slice(0, 2)} |🚶🏼${fast.slice(
+						0,
+						2,
+					)} |🐢${standard.slice(0, 2)}`,
 				},
 			],
 		});
@@ -54,7 +66,6 @@ const handlePresence = async (client) => {
  * @param {Object} interaction The interaction
  */
 const getSlpPrice = async (interaction) => {
-
 	const response = await api.get(
 		'https://api.coingecko.com/api/v3/coins/smooth-love-potion',
 	);
@@ -84,7 +95,11 @@ const calcSlp = async (interaction) => {
 	const eth = response.data['market_data']['current_price']['eth'];
 
 	await interaction.reply({
-		content: `**How much you made in SLP**: \n-**USD**: ${Math.trunc(usd * amount)}$ \n-**ETH**: ${eth * amount} \n-**BRL**: R$ ${Math.trunc(brl * amount)},00`,
+		content: `**How much you made in SLP**: \n-**USD**: ${Math.trunc(
+			usd * amount,
+		)}$ \n-**ETH**: ${eth * amount} \n-**BRL**: R$ ${Math.trunc(
+			brl * amount,
+		)},00`,
 		ephemeral: true,
 	});
 };

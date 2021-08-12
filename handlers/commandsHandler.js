@@ -13,6 +13,8 @@ const loadCommands = async (client) => {
 	}]);
 
 	createCommand(client, 'ping', 'Checks my heartbeat', []);
+
+	createCommand(client, 'source', 'Get my source code (written by wyvern800)', []);
 };
 
 /**
