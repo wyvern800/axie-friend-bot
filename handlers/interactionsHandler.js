@@ -30,6 +30,13 @@ const handleInteractions = async (client, interaction) => {
 			ephemeral: true,
 		});
 		break;
+	case 'help':
+		interaction.reply({
+			content:
+          '**My Commands are**:\n/slp, /prices, /source, /ping',
+			ephemeral: true,
+		});
+		break;
 	}
 };
 
