@@ -1,0 +1,1 @@
+worker: babel-node index.js
