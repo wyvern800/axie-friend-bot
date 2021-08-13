@@ -13,6 +13,15 @@ const emojiCharacters = {
 	'!': '❗', '?': '❓',
 };
 
+/**
+ * Returns the number in a formatted type
+ * @param {Number} number The number
+ * @returns Formatted number
+ */
+const formatNumber = (number) => {
+	return (number).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+};
+
 export {
-	emojiCharacters,
+	emojiCharacters, formatNumber,
 };

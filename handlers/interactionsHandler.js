@@ -1,6 +1,7 @@
 import { emojiCharacters } from '../utils/utils';
 import axios from 'axios';
 import { MessageEmbed } from 'discord.js';
+import { formatNumber } from '../utils/utils';
 
 const api = axios.create({});
 
@@ -32,8 +33,7 @@ const handleInteractions = async (client, interaction) => {
 		break;
 	case 'help':
 		interaction.reply({
-			content:
-          '**My Commands are**:\n/slp, /prices, /source, /ping',
+			content: '**My Commands are**:\n/slp, /prices, /source, /ping',
 			ephemeral: true,
 		});
 		break;
@@ -58,14 +58,13 @@ const handlePresence = async (client) => {
 		client.user.setPresence({
 			activities: [
 				{
-					name: `⚡${fast.toString().slice(0, 2)} |🚶🏼${standard.toString().slice(
-						0,
-						2,
-					)} |🐢${slow.toString().slice(0, 2)}`,
+					name: `⚡${fast.toString().slice(0, 2)} |🚶🏼${standard
+						.toString()
+						.slice(0, 2)} |🐢${slow.toString().slice(0, 2)}`,
 				},
 			],
 		});
-	}, 10000);
+	}, 5000);
 };
 
 /**
@@ -82,7 +81,7 @@ const getSlpPrice = async (interaction) => {
 	const eth = response.data['market_data']['current_price']['eth'];
 
 	await interaction.reply({
-		content: `**The prices at this moment are**: \n**USD**: ${usd} \n**ETH**: ${eth} \n**BRL**: ${brl}`,
+		content: `**1x Smooth love potion cost at this moment**: -\n** USD**: ${usd}$ \n-** ETH**: ${eth} \n- **BRL**: R$ ${brl}`,
 	});
 };
 
@@ -102,11 +101,11 @@ const calcSlp = async (interaction) => {
 	const eth = response.data['market_data']['current_price']['eth'];
 
 	await interaction.reply({
-		content: `**How much you made in SLP**: \n-**USD**: ${Math.trunc(
-			usd * amount,
-		)}$ \n-**ETH**: ${eth * amount} \n-**BRL**: R$ ${Math.trunc(
-			brl * amount,
-		)},00`,
+		content: `**${amount}x Smooth love potion${amount > 1 ? 's' : ''} cost${
+			amount > 1 ? 's' : ''
+		}**: \n- **USD**: ${formatNumber(usd * amount)}$ \n- **ETH**: ${
+			eth * amount
+		} \n- **BRL**: R$ ${formatNumber(brl * amount)}`,
 		ephemeral: true,
 	});
 };
