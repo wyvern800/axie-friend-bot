@@ -16,4 +16,4 @@ If you liked this bot, you can send subscribe to my [Patreon]('https://www.patre
 * [Coingecko API](https://coingecko.com)
 * [GasNow API](https://www.gasnow.org)
 * [Bisicleta666](https://github.com/bisicleta666)
-* [Terrible_Developer](https://github.com/Terrible_Developer)
+* [Terrible-Developer](https://github.com/Terrible-Developer)
