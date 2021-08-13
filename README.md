@@ -13,7 +13,7 @@ please open a **issue** and i'll be happy to do it so!
 If you liked this bot, you can send subscribe to my [Patreon]('https://www.patreon.com/wyvern800'), thanks!
 
 ### Credits
-[Coingecko API](https://coingecko.com)
-[GasNow API](https://www.gasnow.org)
-[Bisicleta666](https://github.com/bisicleta666)
-[Terrible_Developer](https://github.com/Terrible_Developer)
+* [Coingecko API](https://coingecko.com)
+* [GasNow API](https://www.gasnow.org)
+* [Bisicleta666](https://github.com/bisicleta666)
+* [Terrible_Developer](https://github.com/Terrible_Developer)
