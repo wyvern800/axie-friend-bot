@@ -50,18 +50,18 @@ const handlePresence = async (client) => {
 			'https://www.gasnow.org/api/v3/gas/price?utm_source=gasnow-fetcher',
 		);
 
-		const rapid = response.data['data']['rapid'].toString();
-		const fast = response.data['data']['fast'].toString();
-		const standard = response.data['data']['standard'].toString();
-		const slow = response.data['data']['slow'].toString();
+		const rapid = Math.round(response.data['data']['rapid']);
+		const fast = Math.round(response.data['data']['fast']);
+		const standard = Math.round(response.data['data']['standard']);
+		const slow = Math.round(response.data['data']['slow']);
 
 		client.user.setPresence({
 			activities: [
 				{
-					name: `⚡${fast.slice(0, 2)} |🚶🏼${standard.slice(
+					name: `⚡${fast.toString().slice(0, 2)} |🚶🏼${standard.toString().slice(
 						0,
 						2,
-					)} |🐢${slow.slice(0, 2)}`,
+					)} |🐢${slow.toString().slice(0, 2)}`,
 				},
 			],
 		});
